@@ -10,24 +10,24 @@ import javax.persistence.Table;
 public class Jokes {
 
     @Id
-    private int id;
+    private String id;
     private String setup;
     private String punchline;
 
     public Jokes() {
     }
 
-    public Jokes(int id, String setup, String punchline) {
+    public Jokes(String id, String setup, String punchline) {
         this.id = id;
         this.setup = setup;
         this.punchline = punchline;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

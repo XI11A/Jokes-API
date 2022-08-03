@@ -1,7 +1,7 @@
 package com.nivash.jokes.controller;
 
 import com.nivash.jokes.bean.Jokes;
-import com.nivash.jokes.exception.JokesNotFoundException;
+//import com.nivash.jokes.exception.JokesNotFoundException;
 import com.nivash.jokes.service.JokesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
