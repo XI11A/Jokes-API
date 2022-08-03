@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class JokesController {
@@ -33,11 +34,15 @@ public class JokesController {
     public void deleteJoke(@PathVariable String id){
         jokesService.deleteJoke(id);
     }
-//    @GetMapping("/jokes/{id}")
-//    public Jokes getOneJoke(@PathVariable int id){
-//        Jokes joke = jokesService.(id);
-//        System.out.println(joke);
-//        return jokeMethod(joke,id);
-//    }
+
+    @GetMapping("/jokes/{id}")
+    private Jokes getOneJoke(@PathVariable("id") String id){
+        return jokesService.getOneJoke(id);
+    }
+
+    @GetMapping("/jokes/random")
+    private Optional<Jokes> randomJoke(){
+        return jokesService.randomJoke();
+    }
 
 }

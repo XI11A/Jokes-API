@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JokesService {
@@ -30,14 +31,12 @@ public class JokesService {
         jokesRepo.deleteById(id);
     }
 
-//    public Jokes getOneJoke(){
-//        List<Jokes> jokes = new ArrayList<>();
-//        jokesRepo.
-//        for (Jokes joke:jokesRepo){
-//            if (joke.getId()==id){
-//                return joke;
-//            }
-//        }
-//        return null;
-//    }
+    public Jokes getOneJoke(String id) {
+        return jokesRepo.findById(id).get();
+    }
+
+    public Optional<Jokes> randomJoke() {
+        List<Jokes> jokes = new ArrayList<>();
+        return jokesRepo.findById(String.valueOf((int)Math.floor(Math.random()*500)));
+    }
 }
