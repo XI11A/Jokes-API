@@ -14,6 +14,10 @@ public class JokesService {
     @Autowired
     public JokesRepository jokesRepo;
 
+    public Long getJokesCount(){
+        return jokesRepo.count();
+    }
+
     public List<Jokes> getAllJokes(){
         List<Jokes> jokes =new ArrayList<>();
         jokesRepo.findAll().forEach(jokes::add);
@@ -37,6 +41,6 @@ public class JokesService {
 
     public Optional<Jokes> randomJoke() {
         List<Jokes> jokes = new ArrayList<>();
-        return jokesRepo.findById(String.valueOf((int)Math.floor(Math.random()*500)));
+        return jokesRepo.findById(String.valueOf((int)Math.floor(Math.random()*getJokesCount())));
     }
 }
